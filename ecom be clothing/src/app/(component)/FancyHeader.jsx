@@ -19,18 +19,18 @@ function FancyHeader() {
         <nav className="nav flex justify-between items-center md:ml-8 lg:ml-16 xl:ml-16">
           <ul className="flex justify-center items-center cursor-pointer">
             <li className="mr-6 md:mr-4 lg:mr-6 xl:mr-6">
-              <Link href="/" className="text-gray-600 hover:text-black" activeClassName="active-link">
+              <Link href="/" className="text-gray-600 hover:text-black" activeclassname="active-link">
                 Home
               </Link>
             </li>
             <li className="mr-6 md:mr-4 lg:mr-6 xl:mr-6">
-              <Link href="/about_us" className="text-gray-600 hover:text-black" activeClassName="active-link">
+              <Link href="/about_us" className="text-gray-600 hover:text-black" activeclassname="active-link">
                 About us
               </Link>
             </li>
             <li className="mr-6 md:mr-4 lg:mr-6 xl:mr-6">
               <div className="group">
-                <Link href="/shop" className="text-gray-600 hover:text-black" activeClassName="active-link">
+                <Link href="/shop" className="text-gray-600 hover:text-black" activeclassname="active-link">
                   Shop
                 </Link>
                 <div className="shop-dropdown-wrapper absolute left-0 z-20">
@@ -39,7 +39,7 @@ function FancyHeader() {
               </div>
             </li>
             <li>
-              <Link href="/contact" className="text-gray-600 hover:text-black" activeClassName="active-link">
+              <Link href="/contact" className="text-gray-600 hover:text-black" activeclassname="active-link">
                 Contact
               </Link>
             </li>
@@ -47,14 +47,14 @@ function FancyHeader() {
         </nav>
       </header>
       <div
-        className="connector absolute top-[8%] md:top-[8%] lg:top-[9.7%]  right-[29.8%] w-[1px] md:w-[1%] lg:w-[1%] h-20 bg-[#E2E2E3] skew-y-[-40deg]"
+        className="connector absolute top-[8%] md:top-[8%] lg:top-[9.7%]  right-[30%] w-[1px] md:w-[1%] lg:w-[1%] h-20 bg-[#E2E2E3] skew-y-[-40deg]"
         style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}
       />
       <div
-        className="header-right flex justify-between items-center bg-white py-4 h-20 px-5 shadow-md absolute right-[10.8%] top-[8.8%] z-10 md:right-[10.8%] lg:right-[10.6%] "
+        className="header-right flex justify-between items-center bg-white py-4 h-20 px-5 shadow-md absolute right-[10.8%] top-[8.8%] z-10 md:right-[10.8%] lg:right-[11.4%] "
         style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}
       >
-        <Link href="#" className="cart text-gray-800 hover:text-black mr-4">
+        <Link href="/cart" className="cart text-gray-800 hover:text-black mr-4">
           <i className="fas fa-shopping-cart" />
           <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">0</span>
         </Link>

@@ -5,7 +5,7 @@ const products = [
   {
     category: 'ACCESSORY',
     items: [
-      { name: 'All', url: '/shop/accessory/all' },
+      { name: 'All', url: '/shop' },
       { name: 'Bags', url: '/shop/accessory/bags' },
       { name: 'Belts', url: '/shop/accessory/belts' },
       { name: 'Hats & cap', url: '/shop/accessory/hats-cap' },
@@ -13,7 +13,7 @@ const products = [
     ],
   },
   {
-    category: 'Clothing',
+    category: 'CLOTHING',
     items: [
       { name: 'Hoodies', url: '/shop/clothing/hoodies' },
       { name: 'Jackets', url: '/shop/clothing/jackets' },

@@ -31,24 +31,24 @@ function Header() {
             <div className="container  mx-auto p-4 flex justify-evenly items-center md:px-6 lg:px-8">
                 <div className="logo w-15  md:w-20 lg:w-32 md:ml-2 lg:ml-4">
                     <Link href="/">
-                        <Image src="/assets/clothing2.png" alt="Logo" width={300} height={150} unoptimized />
+                        <Image src="/assets/clothing2.png" alt="Logo" width={300} height={150} unoptimized  />
                     </Link>
                 </div>
                 <nav className=" nav hidden md:flex lg:flex">
                     <ul className="flex items-center md:space-x-1 lg:space-x-2">
                         <li>
-                            <Link href="/" className=" text-md md:text-md lg:text-lg md:mx-2 lg:mx-4 hover:text-black" activeClassName="active-link">
+                            <Link href="/" className=" text-md md:text-md lg:text-lg md:mx-2 lg:mx-4 hover:text-black" activeclassname="active-link">
                                 Home
                             </Link>
                         </li>
                         <li>
-                            <Link href="/about_us" className=" text-md md:text-md lg:text-lg md:mx-2 lg:mx-4 hover:text-black" activeClassName="active-link">
+                            <Link href="/about_us" className=" text-md md:text-md lg:text-lg md:mx-2 lg:mx-4 hover:text-black" activeclassname="active-link">
                                 About us
                             </Link>
                         </li>
                         <li>
                             <div className="group">
-                                <Link href="/shop" className=" hover:text-black" activeClassName="active-link">
+                                <Link href="/shop" className=" hover:text-black" activeclassname="active-link">
                                     Shop
                                 </Link>
                                 <div className="shop-dropdown-wrapper   absolute left-[57%] -translate-x-[50%] z-10 transform -translate-x-50% left-50%">
@@ -57,7 +57,7 @@ function Header() {
                             </div>
                         </li>
                         <li>
-                            <Link href="/contact" className=" text-md md:text-md lg:text-lg md:mx-2 lg:mx-4 hover:text-black" activeClassName="active-link">
+                            <Link href="/contact" className=" text-md md:text-md lg:text-lg md:mx-2 lg:mx-4 hover:text-black" activeclassname="active-link">
                                 Contact
                             </Link>
                         </li>

@@ -115,7 +115,7 @@ function Page() {
               <h2 className="text-2xl font-bold">GET 20% OFF</h2>
               <p className="text-sm py-4">Fusce dolor velit laoreet</p>
               <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 sm:px-4 lg:px-10 rounded">
-                <Link href={'about_us'}>Learn more</Link>
+                <Link href={'/about_us'}>Learn more</Link>
               </button>
             </div>
             <div className="w-full md:w-1/3 xl:w-1/3 bg-cover bg-center h-full"

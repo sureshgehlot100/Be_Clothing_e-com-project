@@ -9,7 +9,7 @@ function Footer() {
           {/* First block: Contact Information */}
           <div className="w-full lg:w-1/4 xl:w-1/4 p-6">
             <h5 className=" text-black font-bold mb-4">
-              <Image alt='logosym' width={100} height={50} src={'https://themes.muffingroup.com/be/clothing2/wp-content/uploads/2020/07/retina-clothing2.png'} />
+              <Image alt='logosym' width={100} height={50} src={'https://themes.muffingroup.com/be/clothing2/wp-content/uploads/2020/07/retina-clothing2.png'} style={{width:'auto'}} />
             </h5>
             <ul>
               <li className="mt-4">
@@ -75,7 +75,7 @@ function Footer() {
           </li>
           <li className='text-4xl ml-3 '>
             <a href="#" className="text-gray-600 hover:text-gray-900 " onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <i class="fa-solid fa-angle-up"></i>
+            <i className="fa-solid fa-angle-up"></i>
             </a>
           </li>
         </ul>

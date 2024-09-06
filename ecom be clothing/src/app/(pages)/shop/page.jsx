@@ -3,6 +3,7 @@ import { CardData } from '@/app/(component)/CardData';
 import Footer from '@/app/(component)/Footer'
 import SliderCommen from '@/app/(component)/SliderCommen'
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 import { useState } from 'react';
 
 
@@ -10,6 +11,8 @@ function Page() {
   const [selectedOption, setSelectedOption] = useState('Default sorting');
   const [cardData, setCardData] = useState([CardData]);
   const text = ('Shop');
+  const PathNameUrl = useParams();
+  console.log(PathNameUrl);
 
   const handleSortChange = (event) => {
     const selectedOption = event.target.value;
@@ -33,15 +36,17 @@ function Page() {
       case 'Sort by price: high to low':
         sortedCardData.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
         break;
+      case 'Default sorting':
+        window.location.reload(); // Reset to original order
+        break;
       default:
         // Default sorting (no change)
         break;
     }
-
     setCardData([sortedCardData]);
   };
 
-  console.log(cardData);
+  
 
   return (
     <div>
@@ -80,13 +85,13 @@ function Page() {
                         alt="Weekly Deal Image"
                         width={227}
                         height={100}
-                        style={{ objectFit: 'cover' }}
+                        style={{ width:'92%' }}
                         className="transition duration-300 ease-in-out hover:scale-110"
                       />
                       <div className="absolute top-[30%] left-[25%] p-5 bg-black bg-opacity-90 hidden group-hover:flex hover:bg-white justify-center items-center text-white hover:text-black cursor-pointer">
                         <i className="fas fa-shopping-cart" />
                       </div>
-                      <div className="absolute top-[30%] left-[51%] p-5 bg-black bg-opacity-90 hidden group-hover:flex hover:bg-white justify-center items-center text-white hover:text-black cursor-pointer">
+                      <div className="absolute top-[30%] left-[48%] p-5 bg-black bg-opacity-90 hidden group-hover:flex hover:bg-white justify-center items-center text-white hover:text-black cursor-pointer">
                         <i className="fa-solid fa-link"></i>
                       </div>
                       <h3 className="text-lg text-gray-900 font-[250] my-2">{item.description}</h3>

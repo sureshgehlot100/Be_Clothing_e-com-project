@@ -59,7 +59,7 @@ function WeeklyDeal() {
                             <i className="fas fa-shopping-cart" />
                         </div>
                         <div className="absolute top-[30%] left-[51%] p-5 bg-black bg-opacity-90 hidden group-hover:flex hover:bg-white justify-center items-center text-white hover:text-black cursor-pointer">
-                            <i class="fa-solid fa-link"></i>
+                            <i className="fa-solid fa-link"></i>
                         </div>
                         <h3 className="text-lg text-gray-600 my-2">Etiam ullamcorper</h3>
                         <p className="text-sm text-gray-600 mb-4">£12.00</p>
