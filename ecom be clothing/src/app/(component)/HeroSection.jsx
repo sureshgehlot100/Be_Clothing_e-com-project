@@ -7,18 +7,16 @@ import WhoWeAre from './WoWeAre';
 import Delivers from './Delivers';
 import Footer from './Footer';
 
-
 function HeroSection() {
-
-    return (
-        <div>
-            <Slider />
-            <WeeklyDeal />
-            <Monthlydeal />
-            <WhoWeAre />
-            <Delivers />
-            <Footer />
-        </div>
+    return (       
+            <div>
+                <Slider />
+                <WeeklyDeal />
+                <Monthlydeal />
+                <WhoWeAre />
+                <Delivers />
+                <Footer />
+            </div>       
     );
 };
 

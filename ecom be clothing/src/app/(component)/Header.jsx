@@ -3,9 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import ShopdropDownBox from './ShopdropDownBox';
+import { useSelector } from 'react-redux';
 
 function Header() {
     const [showHeader, setShowHeader] = useState(false);
+    const cart = useSelector((state) => state.cart);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -31,7 +33,7 @@ function Header() {
             <div className="container  mx-auto p-4 flex justify-evenly items-center md:px-6 lg:px-8">
                 <div className="logo w-15  md:w-20 lg:w-32 md:ml-2 lg:ml-4">
                     <Link href="/">
-                        <Image src="/assets/clothing2.png" alt="Logo" width={300} height={150} unoptimized  />
+                        <Image src="/assets/clothing2.png" alt="Logo" width={300} height={150} unoptimized />
                     </Link>
                 </div>
                 <nav className=" nav hidden md:flex lg:flex">
@@ -69,7 +71,7 @@ function Header() {
                 >
                     <Link href="#" className="cart text-gray-800 hover:text-black mr-4 md:mr-2 lg:mr-4 md:w-full lg:w-auto">
                         <i className="fas fa-shopping-cart" />
-                        <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">0</span>
+                        <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">{cart.items.length}</span>
                     </Link>
                     <Link href="#" className="search text-gray-800 hover:text-black md:hidden lg:inline-block">
                         <i className="fas fa-search" />

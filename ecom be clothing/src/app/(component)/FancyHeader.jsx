@@ -3,8 +3,12 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ShopdropDownBox from './ShopdropDownBox';
+import { useSelector } from 'react-redux';
+
+
 
 function FancyHeader() {
+  const cart = useSelector((state) => state.cart);
   return (
     <>
       <header
@@ -51,12 +55,12 @@ function FancyHeader() {
         style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}
       />
       <div
-        className="header-right flex justify-between items-center bg-white py-4 h-20 px-5 shadow-md absolute right-[10.8%] top-[8.8%] z-10 md:right-[10.8%] lg:right-[11.4%] "
+        className="header-right flex justify-between items-center bg-white py-4 h-20 px-5 shadow-md absolute right-[10.8%] top-[8.8%] z-10 md:right-[10.8%] lg:right-[11%] "
         style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}
       >
         <Link href="/cart" className="cart text-gray-800 hover:text-black mr-4">
           <i className="fas fa-shopping-cart" />
-          <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">0</span>
+          <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">{cart.items.length}</span>
         </Link>
         <Link href="#" className="search text-gray-800 hover:text-black">
           <i className="fas fa-search" />

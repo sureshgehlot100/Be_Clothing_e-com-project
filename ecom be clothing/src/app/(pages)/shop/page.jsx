@@ -2,24 +2,25 @@
 import { CardData } from '@/app/(component)/CardData';
 import Footer from '@/app/(component)/Footer'
 import SliderCommen from '@/app/(component)/SliderCommen'
+import { addItem } from '@/app/redux/cartSlice';
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 
-function Page() {
+
+function Page({ item }) {
   const [selectedOption, setSelectedOption] = useState('Default sorting');
   const [cardData, setCardData] = useState([CardData]);
+  const dispatch = useDispatch();
   const text = ('Shop');
-  const PathNameUrl = useParams();
-  console.log(PathNameUrl);
 
+
+  // handle Shorting//
   const handleSortChange = (event) => {
     const selectedOption = event.target.value;
     setSelectedOption(selectedOption);
-
     let sortedCardData = [...cardData[0]]; // Create a copy of the original cardData
-
     switch (selectedOption) {
       case 'Sort by popularity':
         sortedCardData.sort((a, b) => b.popularity - a.popularity);
@@ -45,8 +46,11 @@ function Page() {
     }
     setCardData([sortedCardData]);
   };
+  //handle Add to Cart//
+  const handleAddToCart = (item) => {
+    dispatch(addItem(item));
+  };
 
-  
 
   return (
     <div>
@@ -85,14 +89,18 @@ function Page() {
                         alt="Weekly Deal Image"
                         width={227}
                         height={100}
-                        style={{ width:'92%' }}
+                        style={{ width: '92%' }}
                         className="transition duration-300 ease-in-out hover:scale-110"
                       />
                       <div className="absolute top-[30%] left-[25%] p-5 bg-black bg-opacity-90 hidden group-hover:flex hover:bg-white justify-center items-center text-white hover:text-black cursor-pointer">
-                        <i className="fas fa-shopping-cart" />
+                        <button onClick={() => handleAddToCart(item)}>
+                          <i className="fas fa-shopping-cart"></i>
+                        </button>
                       </div>
                       <div className="absolute top-[30%] left-[48%] p-5 bg-black bg-opacity-90 hidden group-hover:flex hover:bg-white justify-center items-center text-white hover:text-black cursor-pointer">
-                        <i className="fa-solid fa-link"></i>
+                        <button>
+                          <i className="fa-solid fa-link"></i>
+                        </button>
                       </div>
                       <h3 className="text-lg text-gray-900 font-[250] my-2">{item.description}</h3>
                       <p className="text-sm text-gray-600 mb-4">{item.price.includes(' ') ? (

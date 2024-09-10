@@ -4,7 +4,7 @@ import React from 'react';
 function Footer() {
   return (
     <footer className="bg-[#F6EBE6] text-gray-600">
-      <div className="container w-[75%] mx-auto px-4 py-12">
+      <div className="container w-[80%] mx-auto px-4 py-12">
         <div className="flex flex-wrap justify-center text-center lg:text-left">
           {/* First block: Contact Information */}
           <div className="w-full lg:w-1/4 xl:w-1/4 p-6">
