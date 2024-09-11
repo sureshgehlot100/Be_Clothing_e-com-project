@@ -11,13 +11,21 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      state.items.push(action.payload);
-      state.total += action.payload.price;
+      const existingItem = state.items.find((item) => item.id === action.payload.id);
+      if (existingItem) {
+        // Update quantity if item already exists
+        existingItem.quantity += 1;
+        state.total += action.payload.price * existingItem.quantity;
+      } else {
+        // Add new item to cart
+        state.items.push({ ...action.payload, quantity: 1 });
+        state.total += action.payload.price;
+      }
     },
     removeItem(state, action) {
       const index = state.items.findIndex((item) => item.id === action.payload.id);
       if (index !== -1) {
-        state.total -= state.items[index].price;
+        state.total -= state.items[index].price * state.items[index].quantity;
         state.items.splice(index, 1);
       }
     },

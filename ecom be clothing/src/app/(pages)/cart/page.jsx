@@ -1,12 +1,34 @@
 'use client'
-// import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Footer from '@/app/(component)/Footer';
 import SliderCommen from '@/app/(component)/SliderCommen'
 import Image from 'next/image';
 
 function Page() {
     const text = 'Cart';
-    
+    const dispatch = useDispatch();
+    const cart = useSelector((state) => state.cart.items);
+    console.log(cart)
+
+    // Calculate subtotal
+    const subtotal = cart.reduce((acc, item) => {
+        return acc + (item.quantity * (item.price.includes(' ') ? parseFloat(item.price.split(' ')[1]) : parseFloat(item.price)));
+    }, 0);
+
+    // Calculate tax (10% of subtotal)
+    const tax = subtotal * 0.1;
+
+    // Calculate total
+    const total = subtotal + tax;
+
+    // Define helper functions
+    function formatPrice(price) {
+        return `£${getItemPrice(price).toFixed(2)}`;
+    }
+    function getItemPrice(price) {
+        return price.includes(' ') ? parseFloat(price.split(' ')[1]) : parseFloat(price);
+    }
+
 
     return (
         <>
@@ -23,27 +45,33 @@ function Page() {
                                 <th className="text-left">Total</th>
                             </tr>
                         </thead>
-                        <tbody className='border-[1px] rounded-sm shadow-md '>
-                            <tr >
-                                <td>
-                                    <div className="flex items-center">
-                                        <Image
-                                            src="https://themes.muffingroup.com/be/clothing2/wp-content/uploads/2020/07/clothing2-products-pic2-300x300.jpg"
-                                            alt="Product Image"
-                                            width={100}
-                                            height={100}
-                                            className="w-20 h-20 m-4"
-                                        />
-                                        <span>Aliquam erat ac ipsum</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <input type="number" value={1} className="w-12 pl-2 text-sm" />
-                                </td>
-                                <td>£24.00</td>
-                                <td>£24.00</td>
-                            </tr>
-                        </tbody>
+                        {
+                            cart && Array.isArray(cart) && cart.map((item, index) => {
+                                return (
+                                    <tbody key={index} className='border-[1px] rounded-sm shadow-md ' >
+                                        <tr >
+                                            <td>
+                                                <div className="flex items-center">
+                                                    <Image
+                                                        src={item.image}
+                                                        alt="Product Image"
+                                                        width={100}
+                                                        height={100}
+                                                        className="w-20 h-20 m-4"
+                                                    />
+                                                    <span>{item.description}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="number" value={item.quantity} className="w-12 pl-2 text-sm" />
+                                            </td>
+                                            <td>{formatPrice(item.price)}</td>
+                                            <td>£{(item.quantity * getItemPrice(item.price)).toFixed(2)}</td>
+                                        </tr>
+                                    </tbody>
+                                )
+                            })
+                        }
                         <div className="coupon-section w-1/2 mt-4 flex justify-between m-2">
                             <input type="text" placeholder="Coupon code" className="w-36 p-2 text-lg  border-2 rounded-br-xl" />
                             <button className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-14 ">Apply</button>
@@ -55,15 +83,15 @@ function Page() {
                         <h3 className="text-lg font-bold mb-2">Cart totals</h3>
                         <div className='flex justify-around py-2 border-x-2 border-2 rounded shadow-sm '>
                             <p className=' text-gray-600 text-[250]'>Subtotal</p>
-                            <p>£24.00</p>
+                            <p>£{subtotal.toFixed(2)}</p>
                         </div>
                         <div className='flex justify-around py-2 border-x-2 '>
                             <p className='text-gray-600 text-[250]'>Tax(10%)</p>
-                            <p>£2.4</p>
+                            <p>£{tax.toFixed(2)}</p>
                         </div>
                         <div className='flex justify-around py-2 border-x-2 border-2 rounded shadow-lg'>
                             <p className='text-gray-600 text-[250]'>Total</p>
-                            <p>£26.04</p>
+                            <p>£{total.toFixed(2)}</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +99,7 @@ function Page() {
                     <button className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Update Cart</button>
                     <button className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-4">Checkout</button>
                 </div>
-            </div>
+            </div >
             <Footer />
         </>
     )

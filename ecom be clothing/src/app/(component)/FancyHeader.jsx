@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 
 function FancyHeader() {
   const cart = useSelector((state) => state.cart);
+  const totalQuantity = cart.items.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <>
       <header
@@ -60,7 +61,7 @@ function FancyHeader() {
       >
         <Link href="/cart" className="cart text-gray-800 hover:text-black mr-4">
           <i className="fas fa-shopping-cart" />
-          <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">{cart.items.length}</span>
+          <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">{totalQuantity}</span>
         </Link>
         <Link href="#" className="search text-gray-800 hover:text-black">
           <i className="fas fa-search" />

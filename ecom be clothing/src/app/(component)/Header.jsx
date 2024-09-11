@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 function Header() {
     const [showHeader, setShowHeader] = useState(false);
     const cart = useSelector((state) => state.cart);
+    const totalQuantity = cart.items.reduce((acc, item) => acc + item.quantity, 0);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -71,7 +72,7 @@ function Header() {
                 >
                     <Link href="#" className="cart text-gray-800 hover:text-black mr-4 md:mr-2 lg:mr-4 md:w-full lg:w-auto">
                         <i className="fas fa-shopping-cart" />
-                        <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">{cart.items.length}</span>
+                        <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">{totalQuantity}</span>
                     </Link>
                     <Link href="#" className="search text-gray-800 hover:text-black md:hidden lg:inline-block">
                         <i className="fas fa-search" />
