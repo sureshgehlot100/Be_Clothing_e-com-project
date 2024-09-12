@@ -100,7 +100,6 @@ function Page() {
                                                 >
                                                     ×
                                                 </button>
-
                                             </tr>
                                         </tbody>
                                     )

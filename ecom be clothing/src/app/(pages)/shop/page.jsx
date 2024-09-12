@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 
 
 
-function Page({ item }) {
+function Page() {
   const [selectedOption, setSelectedOption] = useState('Default sorting');
   const [cardData, setCardData] = useState([CardData]);
   const dispatch = useDispatch();
