@@ -56,12 +56,12 @@ function FancyHeader() {
         style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}
       />
       <div
-        className="header-right flex justify-between items-center bg-white py-4 h-20 px-5 shadow-md absolute right-[10.8%] top-[8.8%] z-10 md:right-[10.8%] lg:right-[11%] "
+        className="header-right flex justify-between items-center bg-white py-4 h-20 px-5 shadow-md absolute right-[10.8%] top-[8.8%] z-10 md:right-[10.8%] lg:right-[12.50%] "
         style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}
       >
         <Link href="/cart" className="cart text-gray-800 hover:text-black mr-4">
-          <i className="fas fa-shopping-cart" />
-          <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">{totalQuantity}</span>
+          <i className="fas fa-shopping-cart text-lg" />
+          <span className="bg-black text-white px-2 py-1 m-1 absolute top-[9px] left-7 rounded z-10 text-[10px]">{totalQuantity}</span>
         </Link>
         <Link href="#" className="search text-gray-800 hover:text-black">
           <i className="fas fa-search" />

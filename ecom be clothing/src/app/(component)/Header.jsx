@@ -70,9 +70,9 @@ function Header() {
                     className="header-right flex justify-between items-center bg-white sm:px-3 lg:px-5 shadow-md "
                     style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}
                 >
-                    <Link href="/cart" className="cart text-gray-800 hover:text-black mr-4 md:mr-2 lg:mr-4 md:w-full lg:w-auto">
-                        <i className="fas fa-shopping-cart" />
-                        <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">{totalQuantity}</span>
+                    <Link href="/cart" className="cart relative text-gray-800 hover:text-black mr-4 md:mr-2 lg:mr-4 md:w-full lg:w-auto">
+                        <i className="fas fa-shopping-cart text-lg" />
+                        <span className="bg-black text-white px-2 py-1 absolute bottom-4 left-3 rounded z-10 text-[10px]">{totalQuantity}</span>
                     </Link>
                     <Link href="#" className="search text-gray-800 hover:text-black md:hidden lg:inline-block">
                         <i className="fas fa-search" />
